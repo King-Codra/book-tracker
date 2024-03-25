@@ -1,0 +1,22 @@
+{{page-title "Index"}}
+<div id="content" class="content">
+
+  {{! Dive Back In Section }}
+  <div id="dive-back-in-section" class="section">
+    <LinkTo @route="dive-back-in" class="section-link">Dive Back In →</LinkTo>
+  </div>
+
+  {{! Statistics Section }}
+  <div id="statistics-section" class="section">
+    <LinkTo @route="statistics" class="section-link">Statistics →</LinkTo>
+  </div>
+
+  {{! My Books Section }}
+  <div id="my-books-section" class="section full-height">
+    <LinkTo @route="my-books" class="section-link">My Books →</LinkTo>
+    <div class="books-list">
+      {{! Dynamically loaded book items }}
+    </div>
+  </div>
+
+</div>

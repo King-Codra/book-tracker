@@ -22,7 +22,7 @@ body {
   padding-left: 5px;
   background-color: #f4f4f4;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
 }
 
 .section-link {
@@ -33,7 +33,7 @@ body {
   background-color: #f4f4f4;
   border-radius: 5px;
   display: inline-block;
-  margin-top: 0px; /* Adjust or remove top margin */
+  margin-top: 0; /* Adjust or remove top margin */
   position: relative;
   top: 0; /* Align to the top */
 }
@@ -55,7 +55,7 @@ body {
 
 a {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .sidebar {
@@ -94,14 +94,14 @@ a {
   text-align: left;
 }
 
+.sidebar:hover #search-icon {
+  display: none;
+}
+
 .sidebar:hover #search-input,
 .sidebar:hover #search-button,
 .sidebar:hover .sidebar-hidden {
   display: inline;
-}
-
-.sidebar:hover #search-icon {
-  display: none;
 }
 
 .sidebar-section {
@@ -115,7 +115,6 @@ a {
 .sidebar-section a {
   color: #fff;
   text-decoration: none;
-  display: none; /* Hide by default, shown on hover */
 }
 
 .sidebar-section:hover {

@@ -1,31 +1,46 @@
 <div class="sidebar">
-  <!-- Search Container -->
-  <div id="search-container">
-    <span id="search-icon">🔎</span>
-    <input
-      type="text"
-      id="search-input"
-      placeholder="Start Looking for Books!"
-      class="sidebar-hidden"
-    />
-    <button id="search-button" class="sidebar-hidden">🔎</button>
-  </div>
-
-  <!-- My Books Link -->
+  {{#if (eq this.router.currentRouteName "index")}}
+    {{! Search Container: Shown only on the Home Page }}
+    <div id="search-container">
+      <span id="search-icon">🔎</span>
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Start Looking for Books!"
+        class="sidebar-hidden"
+        value={{this.searchTerm}}
+        {{on "input" this.updateSearchTerm}}
+        {{on "keypress" this.handleKeyPress}}
+      />
+      <button
+        id="search-button"
+        class="sidebar-hidden"
+        type="button"
+        {{on "click" this.searchBooks}}
+      >🔎</button>
+    </div>
+  {{else}}
+    {{! Home Icon: Shown on all pages except the Home Page }}
+    <div class="sidebar-section" id="sidebar-home">
+      <span id="home-icon">🏠</span>
+      <LinkTo @route="index" class="sidebar-hidden">Home</LinkTo>
+    </div>
+  {{/if}}
+  {{! My Books Link }}
   <div class="sidebar-section" id="sidebar-my-books">
     <span id="books-icon">📚</span>
-    <a href="/my-books" class="sidebar-hidden">My Books</a>
+    <LinkTo @route="my-books" class="sidebar-hidden">My Books</LinkTo>
   </div>
 
-  <!-- Statistics Link -->
+  {{! Statistics Link }}
   <div class="sidebar-section" id="sidebar-statistics">
     <span id="stats-icon">📊</span>
-    <a href="/statistics" class="sidebar-hidden">Statistics</a>
+    <LinkTo @route="statistics" class="sidebar-hidden">Statistics</LinkTo>
   </div>
 
-  <!-- Wishlist Link -->
+  {{! Wishlist Link }}
   <div class="sidebar-section" id="sidebar-wishlist">
     <span id="wishlist-icon">🔖</span>
-    <a href="/wishlist" class="sidebar-hidden">Wishlist</a>
+    <LinkTo @route="wishlist" class="sidebar-hidden">Wishlist</LinkTo>
   </div>
 </div>
