@@ -1,5 +1,19 @@
 {{page-title "My Books"}}
 
-<Sidebar />
-
-<h1> banger</h1>
+<div id="my-books-section" class="section full-height">
+  <LinkTo @route="my-books" class="section-link">My Books →</LinkTo>
+  <div class="books-list">
+    {{#each this.model as |book|}}
+      <div class="book">
+        <img src={{book.cover}} alt="Book cover" />
+        <div class="book-details">
+          <h3>{{book.title}}</h3>
+          <p>Author: {{book.authors}}</p>
+          <!-- Add more details as needed -->
+        </div>
+      </div>
+    {{else}}
+      <p>No books found.</p>
+    {{/each}}
+  </div>
+</div>

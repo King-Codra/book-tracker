@@ -1,0 +1,130 @@
+.search-content {
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+  display: grid;
+  grid-template-rows: 4fr 4fr;
+  grid-template-columns: 4fr 4fr;
+}
+
+.books-list {
+  background-color: #f9f9f9; /* Light grey background */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Spacing inside the container */
+  margin: 20px 0; /* Margin for the top and bottom */
+  max-height: 500px; /* Maximum height of the container */
+  overflow-y: auto; /* Makes the list scrollable */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.book {
+  position: relative;
+  border-bottom: 1px solid #e1e1e1; /* Separator between book entries */
+  padding: 10px 0; /* Spacing above and below each book */
+  display: flex; /* Aligns book details horizontally */
+  align-items: flex-start; /* Centers book details vertically */
+  margin-left: 75px; /* SHOWs Books only BESIDES the sidebar */
+}
+
+.book:last-child {
+  border-bottom: none; /* Removes border from the last book entry */
+}
+
+.book img {
+  border-radius: 2px; /* Rounds the corners of the book cover image */
+  height: 250px; /* Fixed width for book cover images */
+  width: 148.5px; /* Maintain aspect ratio */
+  margin-right: 25px; /* Space between image and book details */
+}
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+}
+.book .title {
+  font-size: 1.2em; /* Larger text for the title */
+  font-weight: bold; /* Bold font for the title */
+  margin-bottom: 15px; /* Space below the title */
+}
+
+.book .author,
+.book .releaseDate {
+  font-size: 1em; /* Standard text size for the author */
+  color: #000000; /* Dark grey color for the author */
+  padding-bottom: 10px;
+}
+
+.book .pages,
+.book .description {
+  font-size: 1em; /* Standard text size for the author */
+  color: #000000; /* Dark grey color for the author */
+  padding-bottom: 10px;
+}
+
+.book-actions {
+  position: absolute;
+  bottom: 10px;
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 170px;
+}
+
+.book-actions button,
+.book-actions .dropdown {
+  flex: 1; /* Makes buttons take equal space */
+  text-align: center; /* Center the text inside buttons */
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.popup {
+  position: fixed;
+  bottom: 50%;
+  left: 50%;
+  height: 100px;
+  width: 100px;
+  font-size: large;
+  text-align: center;
+  transform: translateX(-50%);
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}

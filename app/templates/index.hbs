@@ -15,6 +15,21 @@
   <div id="my-books-section" class="section full-height">
     <LinkTo @route="my-books" class="section-link">My Books →</LinkTo>
     <div class="books-list">
+      {{#each this.model as |book|}}
+        <div class="my-book">
+          <img src={{book.cover}} alt="Book cover" class="my-book-cover" />
+          <div class="my-book-info">
+            <h3 class="my-book-title">{{book.title}}</h3>
+            <p class="my-book-author">{{book.authors}}</p>
+            <p class="my-book-description">{{book.description}}</p>
+
+            <!-- Add more details as needed -->
+          </div>
+        </div>
+      {{else}}
+        <p>This is looking empty.. Start adding your books by searching and
+          adding them to your library</p>
+      {{/each}}
       {{! Dynamically loaded book items }}
     </div>
   </div>

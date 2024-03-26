@@ -1,24 +1,16 @@
 import Route from '@ember/routing/route';
+import { inject } from '@ember/service';
 
 export default class BookSearchRoute extends Route {
+  @inject('book-fetch-fake-api') bookFetchFakeApi;
+
   queryParams = {
     query: {
       refreshModel: true,
     },
   };
 
-  beforeModel() {
-    console.log('Entering beforeModel of book-search');
-  }
-
-  model(params) {
-    // You can use params.query to fetch data
-    console.log('Search query:', params.query);
-    console.log('book-search model hook called with', params);
-    // Fetch data based on the query
-  }
-
-  afterModel() {
-    console.log('Entering afterModel of book-search');
+  async model(params) {
+    return await this.bookFetchFakeApi.testFetch(params.query);
   }
 }

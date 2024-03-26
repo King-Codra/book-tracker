@@ -3,9 +3,23 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject } from '@ember/service';
 
+let sidebar = document.querySelector('.sidebar');
+
 export default class SidebarComponent extends Component {
   @inject router;
   @tracked searchTerm = '';
+
+  @action
+  expandSidebar() {
+    sidebar.classList.add('expanded');
+  }
+
+  @action
+  collapseSidebar() {
+    if (!sidebar.matches(':hover')) {
+      sidebar.classList.remove('expanded');
+    }
+  }
 
   @action
   updateSearchTerm(event) {
@@ -14,17 +28,15 @@ export default class SidebarComponent extends Component {
 
   @action
   searchBooks() {
-    if (!this.searchTerm) {
-      console.log('No search term entered');
+    let searchQuery = this.searchTerm.trim();
+    if (!searchQuery) {
+      console.log('Search query is empty');
       return;
     }
-    let searchTerm = this.searchTerm.replace(/ /g, '');
-    console.log('Searching books for ISBN:', searchTerm);
-
-    // Redirect to the book-search route with the ISBN as a query parameter
     this.router.transitionTo('book-search', {
-      queryParams: { query: searchTerm },
+      queryParams: { query: searchQuery },
     });
+    this.searchTerm = '';
   }
 
   @action

@@ -1,4 +1,42 @@
 {{page-title "BookSearch"}}
-<h1>Book Search Page</h1>
-<p>This is a static content test.</p>
+<div>
+  <div id="search-content" class="search-content">
+    {{#each this.model as |book|}}
+      <div class="book">
+        <img src={{book.cover}} alt="Book cover" />
+        <div class="book-details">
+          <div class="title">{{book.title}}</div>
+          <div class="author">{{book.authors}}</div>
+          <div class="release-date">{{book.releaseDate}}</div>
+          <div class="pages">Pages: {{book.pages}}</div>
+          <div class="description">{{book.description}}</div>
+        </div>
+
+        <div class="book-actions">
+          <button type="button" {{on "click" (fn this.addBook book)}}>Add Book</button>
+          <div class="dropdown">
+            <button
+              type="button"
+              {{on "click" (fn this.toggleDropdown book.isbn)}}
+            >▼</button>
+            <div class="dropdown-content" id="dropdown-{{book.isbn}}">
+              <a href="#" {{on "click" (fn this.addPreviouslyRead book)}}>Add
+                Previously Read Book</a>
+              <!-- Add more options as needed -->
+            </div>
+          </div>
+          <button type="button" {{on "click" (fn this.addToWishlist book)}}>Add
+            to Wishlist</button>
+        </div>
+
+      </div>
+    {{else}}
+      <p>No books found.</p>
+    {{/each}}
+  </div>
+  {{#if this.showPopup}}
+    <div class="popup">Book added!</div>
+  {{/if}}
+</div>
+
 {{outlet}}
