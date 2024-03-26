@@ -3,6 +3,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject } from '@ember/service';
 
+// Declare sidebar
 let sidebar = document.querySelector('.sidebar');
 
 export default class SidebarComponent extends Component {
