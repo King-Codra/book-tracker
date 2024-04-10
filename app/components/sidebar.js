@@ -8,6 +8,7 @@ let sidebar = document.querySelector('.sidebar');
 
 export default class SidebarComponent extends Component {
   @inject router;
+  @inject search;
   @tracked searchTerm = '';
 
   @action
@@ -19,32 +20,6 @@ export default class SidebarComponent extends Component {
   collapseSidebar() {
     if (!sidebar.matches(':hover')) {
       sidebar.classList.remove('expanded');
-    }
-  }
-
-  @action
-  updateSearchTerm(event) {
-    this.searchTerm = event.target.value;
-  }
-
-  @action
-  // Lets the user search books by any means
-  searchBooks() {
-    let searchQuery = this.searchTerm.trim();
-    if (!searchQuery) {
-      console.log('Search query is empty');
-      return;
-    }
-    this.router.transitionTo('book-search', {
-      queryParams: { query: searchQuery },
-    });
-    this.searchTerm = '';
-  }
-
-  @action
-  handleKeyPress(e) {
-    if (e.key === 'Enter') {
-      this.searchBooks();
     }
   }
 }

@@ -1,9 +1,10 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-
+import { inject } from '@ember/service';
 export default class BookSearchController extends Controller {
   @tracked showPopup = false;
+  @inject search;
 
   @action
   // Dropdown menu for different types of "add book" functionality
