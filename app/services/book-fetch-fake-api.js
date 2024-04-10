@@ -74,7 +74,7 @@ const testBooks = {
     releaseDate: 1984,
     language: 'en',
     title: 'Neuromancer',
-    cover: '/ímgs/neuromancer.jpg',
+    cover: '/imgs/neuromancer.jpg',
     isbn: 9781473217386,
     description: `"The sky above the port was the colour of television, tuned to a dead channel."
     William Gibson revolutionised science fiction in his 1984 debut Neuromancer. The writer who gave us the matrix and coined the term 'cyberspace' produced a first novel that won`,
@@ -88,7 +88,7 @@ const testBooks = {
     releaseDate: 2024,
     language: 'en',
     title: 'The Secret History of Bigfoot',
-    cover: '/imgs/historyOfBigfoot/jpg',
+    cover: '/imgs/historyOfBigfoot.jpg',
     isbn: 9781464216633,
     description: `From the shrouded forests of the Pacific Northwest to off-the-wall cryptozoological conventions, one man searches high and low for the answer to the real or not, why do we want to believe?
     Journa.`,
