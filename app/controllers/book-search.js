@@ -6,6 +6,7 @@ export default class BookSearchController extends Controller {
   @tracked showPopup = false;
 
   @action
+  // Dropdown menu for different types of "add book" functionality
   toggleDropdown(bookIsbn) {
     let dropdown = document.getElementById(`dropdown-${bookIsbn}`);
 
@@ -14,6 +15,7 @@ export default class BookSearchController extends Controller {
   }
 
   @action
+  // Add book functionality which adds the selected book to "My books"
   addBook(book) {
     let books = JSON.parse(localStorage.getItem('myBooks')) || [];
 
@@ -40,11 +42,13 @@ export default class BookSearchController extends Controller {
   }
 
   @action
+  // Function that adds the book to the "Wishlist"
   addToWishlist(book) {
     console.log(book);
   }
 
   @action
+  // Positioned in the dropdown menu, will allow the user to specify when the book is read and add the book to "My books" with specified info
   addPreviouslyRead(book) {
     let dropdown = document.getElementById(`dropdown-${book.isbn}`);
 

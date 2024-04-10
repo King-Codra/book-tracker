@@ -28,6 +28,7 @@ export default class SidebarComponent extends Component {
   }
 
   @action
+  // Lets the user search books by any means
   searchBooks() {
     let searchQuery = this.searchTerm.trim();
     if (!searchQuery) {
