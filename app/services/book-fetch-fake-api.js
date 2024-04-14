@@ -1,5 +1,6 @@
 import Service from '@ember/service';
 
+// Several books that can be searched for
 const testBooks = {
   monaLisaOverdrive: {
     authors: 'William Gibson',

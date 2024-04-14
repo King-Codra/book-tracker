@@ -1,5 +1,21 @@
 {{page-title "BookSearch"}}
 <div>
+  <div class="search-box">
+    <input
+      type="text"
+      id="new-search"
+      placeholder="Start Looking for Books!"
+      value={{this.search.searchTerm}}
+      {{on "input" (fn this.search.updateSearchTerm)}}
+      {{on "keypress" (fn this.search.handleKeyPress)}}
+    />
+    <button
+      id="advanced-search-button"
+      type="button"
+      {{on "click" (fn this.search.performSearch false)}}
+    >Search</button>
+  </div>
+
   <div id="search-content" class="search-content">
     {{#each this.model as |book|}}
       <div class="book">
@@ -22,7 +38,7 @@
             <div class="dropdown-content" id="dropdown-{{book.isbn}}">
               <a href="#" {{on "click" (fn this.addPreviouslyRead book)}}>Add
                 Previously Read Book</a>
-              <!-- Add more options as needed -->
+              {{! Add more options as needed }}
             </div>
           </div>
           <button type="button" {{on "click" (fn this.addToWishlist book)}}>Add

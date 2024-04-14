@@ -8,15 +8,15 @@
         id="search-input"
         placeholder="Start Looking for Books!"
         class="sidebar-hidden"
-        value={{this.searchTerm}}
-        {{on "input" this.updateSearchTerm}}
-        {{on "keypress" this.handleKeyPress}}
+        value={{this.search.searchTerm}}
+        {{on "input" this.search.updateSearchTerm}}
+        {{on "keypress" this.search.handleKeyPress}}
       />
       <button
         id="search-button"
         class="sidebar-hidden"
         type="button"
-        {{on "click" this.searchBooks}}
+        {{on "click" this.search.performSearch}}
       >🔎</button>
     </div>
   {{else}}
